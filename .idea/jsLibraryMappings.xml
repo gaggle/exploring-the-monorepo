@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/apps/api" libraries="{Node.js Core}" />
+    <file url="file://$PROJECT_DIR$/apps/web" libraries="{Node.js Core}" />
+    <file url="file://$PROJECT_DIR$/libs/analytics" libraries="{Node.js Core}" />
+    <file url="file://$PROJECT_DIR$/libs/logging" libraries="{Node.js Core}" />
+    <file url="file://$PROJECT_DIR$/libs/types" libraries="{Node.js Core}" />
+  </component>
+</project>

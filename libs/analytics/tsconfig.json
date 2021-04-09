@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./dist",
+    "strict": false
+  },
+  "include": [
+    "./src"
+  ],
+  "references": [
+    {
+      "path": "../../libs/logging/tsconfig.json"
+    }
+  ]
+}

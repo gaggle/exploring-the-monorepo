@@ -1,0 +1,23 @@
+.Home {
+    align-items: center;
+    background-color: #222;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.Home-logo {
+    animation: Home-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+@keyframes Home-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

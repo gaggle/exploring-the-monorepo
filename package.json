@@ -1,0 +1,18 @@
+{
+  "name": "exploring-the-monorepo",
+  "description": "Exploring The Monorepo (a practical, hands-on Typescript guide)",
+  "scripts": {
+    "build": "pnpm -r --if-present run build",
+    "clean": "rm -rf node_modules apps/web/tsconfig.tsbuildinfo libs/types/tsconfig.tsbuildinfo package-lock.json apps/web/build apps/web/cache apps/web/node_modules libs/types/node_modules apps/web/dist libs/types/dist",
+    "preinstall": "npx -y only-allow pnpm",
+    "start": "pnpm -r --if-present --parallel start"
+  },
+  "devDependencies": {
+    "typescript": "4.3.3"
+  },
+  "engines": {
+    "node": ">= 16.1.0",
+    "pnpm": ">= 6.9.0"
+  },
+  "private": true
+}

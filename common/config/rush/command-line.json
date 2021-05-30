@@ -11,6 +11,20 @@
    * "rush my-global-command --help".
    */
   "commands": [
+    {
+      "commandKind": "bulk",
+      "name": "build:watch",
+      "summary": "Watches for changes and reruns builds without cleaning",
+      "description": "",
+      "enableParallelism": true,
+      "incremental": true,
+      "watchForChanges": true,
+      "ignoreDependencyOrder": false,
+      "ignoreMissingScript": false,
+      "safeForSimultaneousRushProcesses": true,
+      "allowWarningsInSuccessfulBuild": false
+    }
+
     // {
     //   /**
     //    * (Required) Determines the type of custom command.

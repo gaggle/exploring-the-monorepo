@@ -25,7 +25,7 @@ async function main () {
   app.get('/allUsers', async function (req, res) {
     await sleep(700) // 😴
     const allUsers = await prisma.user.findMany({ include: { posts: true } })
-    apiAnalytics.foundAllUsers(req.ip, allUsers.length)
+    // apiAnalytics.foundAllUsers(req.ip, allUsers.length)
     const payload: ApiAllUsers = {
       allUsers: allUsers.map(e => ({
         email: e.email,

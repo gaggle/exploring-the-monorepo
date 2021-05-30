@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "src",
   "scripts": {
-    "build": ""
+    "build": "tsc"
   },
   "dependencies": {
     "type-fest": "^1.0.2"

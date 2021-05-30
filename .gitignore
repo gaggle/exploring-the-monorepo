@@ -60,3 +60,7 @@ common/deploy/
 common/temp/
 common/autoinstallers/*/.npmrc
 **/.rush/temp/
+
+# Typescript temporary files
+**/tsconfig.tsbuildinfo
+**/build

@@ -2,9 +2,10 @@
   "name": "analytics",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "src",
+  "main": "build/index",
+  "types": "build/index",
   "scripts": {
-    "build": "",
+    "build": "tsc",
     "test": "jest"
   },
   "dependencies": {

@@ -1,0 +1,16 @@
+{
+  "name": "exploring-the-monorepo",
+  "description": "Exploring The Monorepo (a practical, hands-on Typescript guide)",
+  "scripts_": {
+    "compile": "tsc -b tsconfig.build.json",
+    "prepare": "npm run compile"
+  },
+  "devDependencies": {
+    "typescript": "4.3.3"
+  },
+  "workspaces": [
+    "./apps/*",
+    "./libs/*"
+  ],
+  "private": true
+}

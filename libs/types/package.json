@@ -1,8 +1,11 @@
 {
   "name": "types",
   "version": "0.0.0",
-  "license": "MIT",
-  "main": "src",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "compile":"tsc"
+  },
   "dependencies": {
     "type-fest": "^1.0.2"
   },

@@ -1,6 +1,8 @@
 {
-  "extends": "../../tsconfig-base.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
     "jsx": "react",
     "lib": [
       "dom",
@@ -8,7 +10,5 @@
       "esnext"
     ]
   },
-  "include": [
-    "src"
-  ]
+  "references": [{ "path": "../../libs/types" }]
 }

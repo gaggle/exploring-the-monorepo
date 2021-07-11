@@ -4,9 +4,11 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -b && razzle build --noninteractive",
-    "start": "concurrently -n=tsc,razzle 'pnpm:start:tsc' 'razzle start'",
+    "docker:build":"tar --exclude='node_modules' --exclude='dist' --exclude='.git' --exclude='.idea' -cf - ../.. | docker build -f apps/web/Dockerfile - -t web",
+    "docker:start":"docker run --rm -it -p3000:3000 web",
     "start:prod": "NODE_ENV=production node build/server.js",
     "start:tsc": "tsc -b -w --preserveWatchOutput",
+    "start": "concurrently -n=tsc,razzle 'pnpm:start:tsc' 'razzle start'",
     "test": "razzle test --env=jsdom"
   },
   "dependencies": {

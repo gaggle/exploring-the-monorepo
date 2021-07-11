@@ -1,7 +1,12 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist"
+    "jsx": "react",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "commonjs",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "target": "esnext"
   },
   "include": ["./src"]
 }

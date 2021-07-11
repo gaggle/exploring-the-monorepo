@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "build:start": "NODE_ENV=production node build/server.js",
     "build": "tsc -b && razzle build --noninteractive",
-    "start": "concurrently -n=tsc,razzle 'pnpm:start:tsc' 'razzle start'",
-    "start:prod": "NODE_ENV=production node build/server.js",
+    "docker:build":"tar --exclude='node_modules' --exclude='dist' --exclude='.git' -cf - ../.. | docker build -f apps/web/Dockerfile - -t web",
+    "docker:start":"docker run --rm -it -p3000:3000 web",
     "start:tsc": "tsc -b -w --preserveWatchOutput",
+    "start": "concurrently -n=tsc,razzle 'pnpm:start:tsc' 'razzle start'",
     "test": "razzle test --env=jsdom"
   },
   "dependencies": {

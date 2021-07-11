@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc -b"
+    "build": "tsc -b",
+    "docker:build":"tar --exclude='node_modules' --exclude='dist' --exclude='.git' -cf - ../.. | docker build -f libs/logging/Dockerfile -"
   },
   "devDependencies": {
     "@types/node": "^14.14.41",

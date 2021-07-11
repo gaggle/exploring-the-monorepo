@@ -4,9 +4,13 @@
   "license": "MIT",
   "scripts": {
     "api:start": "prisma generate && nodemon -w src/* -x 'ts-node src/api.ts'",
+    "build:start": "ts-node src/api.ts",
+    "build": "prisma generate && tsc -b",
     "db:migrate": "prisma migrate dev",
     "db:seed": "prisma db seed --preview-feature",
     "db:start": "docker run --rm -i --name=api-db -p 5432:5432 -v api_data:/var/lib/postgresql/data -e POSTGRES_USER='test' -e POSTGRES_PASSWORD='test' -e POSTGRES_DB='api' postgres",
+    "docker:build":"tar --exclude='node_modules' --exclude='dist' --exclude='.git' -cf - ../.. | docker build -f apps/api/Dockerfile - -t api",
+    "docker:start":"docker run --rm -it -p 3002:3002 -e DATABASE_URL=postgresql://test:test@api-db:5432/api --link=api-db api",
     "start": "concurrently -kn=api,db 'pnpm:api:start' 'pnpm:db:start'"
   },
   "dependencies": {

@@ -6,6 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -b",
+    "docker:build":"tar --exclude='node_modules' --exclude='dist' --exclude='.git' -cf - ../.. | docker build -f libs/analytics/Dockerfile -",
     "test": "jest"
   },
   "dependencies": {

@@ -4,6 +4,7 @@
   "scripts": {
     "build": "pnpm -r --if-present run build",
     "clean": "rm -rf node_modules apps/web/tsconfig.tsbuildinfo libs/types/tsconfig.tsbuildinfo package-lock.json apps/web/build apps/web/cache apps/web/node_modules libs/types/node_modules apps/web/dist libs/types/dist",
+    "docker:build": "pnpm -r --if-present --parallel docker:build",
     "list-packages": "echo [$(pnpm -s m ls --depth -1 | tr \" \" \"\n\" | grep -o \"@.*@\" | rev | cut -c 2- | rev | sed -e 's/\\(.*\\)/\"\\1\"/' | paste -sd, - )]",
     "preinstall": "npx -y only-allow pnpm",
     "start": "pnpm -r --if-present --parallel start"

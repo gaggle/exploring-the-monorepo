@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/libs/analytics/libs-analytics.iml" filepath="$PROJECT_DIR$/libs/analytics/libs-analytics.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/logging/libs-logging.iml" filepath="$PROJECT_DIR$/libs/logging/libs-logging.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/types/libs-types.iml" filepath="$PROJECT_DIR$/libs/types/libs-types.iml" />
+      <module fileurl="file://$PROJECT_DIR$/root.iml" filepath="$PROJECT_DIR$/root.iml" />
     </modules>
   </component>
 </project>

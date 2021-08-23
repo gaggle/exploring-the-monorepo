@@ -8,9 +8,9 @@
     "build": "prisma generate && tsc -b",
     "db:migrate": "prisma migrate dev",
     "db:seed": "prisma db seed --preview-feature",
-    "db:start": "docker run --rm -i --name=api-db -p 5432:5432 -v api_data:/var/lib/postgresql/data -e POSTGRES_USER='test' -e POSTGRES_PASSWORD='test' -e POSTGRES_DB='api' postgres",
-    "docker:build":"tar --exclude='node_modules' --exclude='dist' --exclude='.git' -cf - ../.. | docker build -f apps/api/Dockerfile - -t api",
-    "docker:start":"docker run --rm -it -p 3002:3002 -e DATABASE_URL=postgresql://test:test@api-db:5432/api --link=api-db api",
+    "db:start": "docker run --rm -i --name=mono-api-db -p 5432:5432 -v api_data:/var/lib/postgresql/data -e POSTGRES_USER='test' -e POSTGRES_PASSWORD='test' -e POSTGRES_DB='api' postgres",
+    "docker:build": "tar -C ../.. --exclude='node_modules' --exclude='dist' --exclude='web/build' --exclude='web/cache' --exclude='.git' --exclude='.idea' --exclude='.github' -cf - . | docker build --progress=plain -f apps/api/Dockerfile - -t mono/api",
+    "docker:start": "docker run --rm -it -p 3002:3002 -e DATABASE_URL=postgresql://test:test@mono-api-db:5432/api --link=mono-api-db mono/api",
     "start": "concurrently -kn=api,db 'pnpm:api:start' 'pnpm:db:start'"
   },
   "dependencies": {
@@ -20,7 +20,8 @@
     "cors": "^2.8.5",
     "execa": "^5.0.0",
     "express": "^4.17.1",
-    "prisma": "2.27.0-integration-fix-sdk-pnpm.2"
+    "prisma": "2.27.0-integration-fix-sdk-pnpm.2",
+    "ts-node": "^9.1.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
@@ -28,7 +29,6 @@
     "@types/node": "^14.14.37",
     "concurrently": "^6.0.2",
     "nodemon": "^2.0.7",
-    "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
   "private": true

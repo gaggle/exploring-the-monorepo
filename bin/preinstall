@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+set -eu
+
+CI="${CI:-false}"
+
+if [ "$CI" != "true" ]; then
+  npx -y only-allow pnpm
+  # It's recommended practice for pnpm to have a `preinstall` script that runs `npx -y only-allow pnpm`
+  # to prevent users from mistakenly running `npm install` when they should run `pnpm install`.
+  # There's no need to run that on CI however.
+fi

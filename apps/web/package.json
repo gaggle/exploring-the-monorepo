@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build:start": "NODE_ENV=production node build/server.js",
     "build": "tsc -b && razzle build --noninteractive",
-    "docker:build": "tar --exclude='node_modules' --exclude='dist' --exclude='.git' -cf - ../.. | docker build -f apps/web/Dockerfile - -t mono/web",
-    "docker:start": "docker run --rm -it -p3000:3000 web",
-    "start:tsc": "tsc -b -w --preserveWatchOutput",
+    "build:start": "NODE_ENV=production node build/server.js",
+    "docker:build": "pnpm --silent --workspace-root pnpm-context -- -p 'tsconfig.json' -p 'bin/' -p '!**/*.iml' apps/web/Dockerfile | docker build --progress=plain --build-arg PACKAGE_PATH=apps/web - -t mono-web",
+    "docker:start": "docker run --rm -it --name=mono-web -p 3000:3000 mono-web",
     "start": "concurrently -n=tsc,razzle 'pnpm:start:tsc' 'razzle start'",
+    "start:tsc": "tsc -b -w --preserveWatchOutput",
     "test": "razzle test --env=jsdom"
   },
   "dependencies": {

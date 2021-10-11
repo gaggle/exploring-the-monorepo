@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -b",
-    "docker:build": "tar --exclude='node_modules' --exclude='dist' --exclude='.git' -cf - ../.. | docker build -f libs/analytics/Dockerfile - -t mono/analytics",
+    "docker:build": "pnpm --silent --workspace-root pnpm-context -- -p 'tsconfig.json' -p 'bin/' -p '!**/*.iml' libs/analytics/Dockerfile | docker build --progress=plain --build-arg PACKAGE_PATH=libs/analytics -",
     "test": "jest"
   },
   "dependencies": {

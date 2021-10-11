@@ -5,7 +5,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -b",
-    "docker:build": "tar -C ../.. --exclude='node_modules' --exclude='dist' --exclude='web/build' --exclude='web/cache' --exclude='.git' --exclude='.idea' --exclude='.github' -cf - . | docker build --progress=plain -f libs/types/Dockerfile - -t mono/types"
+    "docker:build": "pnpm --silent --workspace-root pnpm-context -- -p 'tsconfig.json' -p 'bin/' -p '!**/*.iml' libs/types/Dockerfile | docker build --progress=plain --build-arg PACKAGE_PATH=libs/types -"
   },
   "dependencies": {
     "type-fest": "^1.0.2"

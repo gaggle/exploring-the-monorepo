@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -b",
-    "docker:build": "pnpm --silent --workspace-root pnpm-context -- -p 'tsconfig.json' -p 'bin/' -p '!**/*.iml' libs/logging/Dockerfile | docker build --progress=plain --build-arg PACKAGE_PATH=libs/logging -"
+    "docker:build": "pnpm --silent --workspace-root pnpm-context -- -p 'tsconfig.json' -p 'bin/' -p '!**/*.iml' libs/logging/Dockerfile | docker build --build-arg PACKAGE_PATH=libs/logging -"
   },
   "devDependencies": {
     "@types/node": "^14.14.41",
